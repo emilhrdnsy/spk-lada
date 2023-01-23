@@ -1,4 +1,4 @@
-<title>Harga - Chirexs 1.0</title>
+<title>Harga</title>
 <head>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 </head>

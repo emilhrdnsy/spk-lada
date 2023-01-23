@@ -1,4 +1,4 @@
-<title>Post - Chirexs 1.0</title>
+<title>Post</title>
 <script type="text/javascript">
     function Blank_TextField_Validator()
     {
@@ -50,11 +50,11 @@ switch ($_GET[act]) {
                 echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
             <tr>
-              <th>No</th>
-              <th>Nama Post</th>
-			  <th>Detail Post</th>
-			  <th>Saran Post</th>
-              <th>Aksi</th>
+              <th style='text-align:center; vertical-align: middle'>No</th>
+              <th style='text-align:center; vertical-align: middle'>Nama Post</th>
+              <th style='text-align:center; vertical-align: middle'>Detail Post</th>
+              <th style='text-align:center; vertical-align: middle'>Saran Post</th>
+              <th style='text-align:center; vertical-align: middle'>Aksi</th>
             </tr>
           </thead>
 		  <tbody>";
@@ -91,22 +91,22 @@ switch ($_GET[act]) {
                 echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
             <tr>
-              <th>No</th>
-              <th>Nama Post</th>
-			  <th>Detail Post</th>
-			  <th>Saran Post</th>
-              <th>Aksi</th>
+              <th style='text-align:center; vertical-align: middle'>No</th>
+              <th style='text-align:center; vertical-align: middle'>Nama Post</th>
+              <th style='text-align:center; vertical-align: middle'>Detail Post</th>
+              <th style='text-align:center; vertical-align: middle'>Saran Post</th>
+              <th style='text-align:center; vertical-align: middle'>Aksi</th>
             </tr>
           </thead>
 		  <tbody>
 		  ";
-                $hasil = mysqli_query($conn,"SELECT * FROM post ORDER BY kode_post limit $offset,$limit");
-                $no = 1;
-                $no = 1 + $offset;
-                $counter = 1;
+              $hasil = mysqli_query($conn,"SELECT * FROM post ORDER BY kode_post limit $offset,$limit");
+              $no = 1;
+              $no = 1 + $offset;
+              $counter = 1;
                 while ($r = mysqli_fetch_array($hasil)) {
-                    if ($counter % 2 == 0)
-                        $warna = "dark";
+                  if ($counter % 2 == 0)
+                    $warna = "dark";
 					if (strlen($r[det_post]) > 150)
 					{
 						$maxLength = 140;
@@ -117,13 +117,13 @@ switch ($_GET[act]) {
 						$maxLength = 140;
 						$r[srn_post] = substr($r[srn_post], 0, $maxLength);
 						}
-                    else
-                        $warna = "light";
-                    echo "<tr class='" . $warna . "'>
-			 <td align=center>$no</td>
-			 <td>$r[nama_post]</td>
-			 <td>$r[det_post]</td>
-			 <td>$r[srn_post]</td>
+              else
+                  $warna = "light";
+              echo "<tr class='" . $warna . "'>
+			 <td style='vertical-align: middle'; align=center>$no</td>
+			 <td style='vertical-align: middle';>$r[nama_post]</td>
+			 <td style='vertical-align: middle';>$r[det_post]</td>
+			 <td style='vertical-align: middle';>$r[srn_post]</td>
 			 <td align=center>
 			 <a type='button' class='btn btn-success margin' href=post/editpost/$r[kode_post]><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Ubah </a> &nbsp;
 	          <a type='button' class='btn btn-danger margin' href=\"JavaScript: confirmIt('Anda yakin akan menghapusnya ?','$aksi?module=post&act=hapus&id=$r[kode_post]','','','','u','n','Self','Self')\" onMouseOver=\"self.status=''; return true\" onMouseOut=\"self.status=''; return true\">
@@ -180,7 +180,7 @@ switch ($_GET[act]) {
 		  <tr><td width=120>Nama Post</td><td><input autocomplete='off' type=text placeholder='Masukkan post baru...' class='form-control' name='nama_post' size=30></td></tr>
 		  <tr><td width=120>Detail Post</td><td> <textarea id='editor1' rows='4' cols='50' class='form-control' name='det_post'type=text placeholder='Masukkan detail post baru...'></textarea></td></tr>
 		  <tr><td width=120>Saran Post</td><td><textarea id='editor2' rows='4' cols='50' class='form-control' name='srn_post'type=text placeholder='Masukkan saran post baru...'></textarea></td></tr>
-		  <tr><td width=120>Gambar Post</td><td>Upload Gambar (Ukuran Maks = 1 MB) : <input type='file' class='form-control' name='gambar' required /></td></tr>
+		  <tr><td width=120>Gambar Post</td><td>Upload Gambar (Ukuran Maks = 1 MB) : <input type='file' class='form-control' name='gambar' /></td></tr>
 		  <tr><td></td><td><input class='btn btn-success' type=submit name=submit value='Simpan' >
 		  <input class='btn btn-danger' type=button name=batal value='Batal' onclick=\"window.location.href='?module=post';\"></td></tr>
           </table></form>";
@@ -201,7 +201,7 @@ switch ($_GET[act]) {
 		  <tr><td width=120>Nama Post</td><td><input autocomplete='off' type=text class='form-control' name='nama_post' size=30 value=\"$r[nama_post]\"></td></tr>
 		  <tr><td width=120>Detail Post</td><td><textarea id='editor1' rows='4' cols='50' type=text class='form-control' name='det_post'>$r[det_post]</textarea></td></tr>
 		  <tr><td width=120>Saran Post</td><td><textarea id='editor2' rows='4' cols='50' type=text class='form-control' name='srn_post'>$r[srn_post]</textarea></td></tr>
-          <tr><td width=120>Gambar Post</td><td>Upload Gambar (Ukuran Maks = 1 MB) : <input id='upload' type='file' class='form-control' name='gambar' required /></td></tr>
+          <tr><td width=120>Gambar Post</td><td>Upload Gambar (Ukuran Maks = 1 MB) : <input id='upload' type='file' class='form-control' name='gambar' /></td></tr>
           <tr><td></td><td><img id='preview' src='$gambar' width=200></td></tr>
           <tr><td></td><td><input class='btn btn-success' type=submit name=submit value='Simpan' >
 		  <input class='btn btn-danger' type=button name=batal value='Batal' onclick=\"window.location.href='?module=post';\"></td></tr>

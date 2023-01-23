@@ -13,7 +13,7 @@ include "config/fungsi_alert.php";
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <base href="http://localhost/chirex/">
-	<link rel="icon" href="gambar/admin/favicon.png">
+	<link rel="icon" href="gambar/admin/favicon2.png">
     <link href="css/font-awesome-4.2.0/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/owl-carousel/owl.carousel.css" rel="stylesheet"  media="all">
     <link href="css/owl-carousel/owl.theme.css" rel="stylesheet"  media="all">
@@ -32,7 +32,7 @@ include "config/fungsi_alert.php";
     <link rel="stylesheet" href="aset/custom.css">
     <link rel="stylesheet" href="aset/icheck/green.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon2.ico" type="image/x-icon">
     <!-- jQuery 2.1.4 -->
     <script src="aset/jQuery-2.js"></script>
     <!-- Bootstrap 3.3.5 -->

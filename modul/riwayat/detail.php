@@ -1,4 +1,4 @@
-<title>Detail Riwayat - Chirexs 1.0</title>
+<title>Detail Riwayat</title>
 <?php
 
 if ($_GET['id']) {
