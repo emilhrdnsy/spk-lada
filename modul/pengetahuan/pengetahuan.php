@@ -95,14 +95,15 @@ switch($_GET[act]){
 	$sql = mysqli_query($conn,"SELECT * FROM gejala where id_gejala = '$r[id]'");
 	$rgejala=mysqli_fetch_array($sql);
        echo "<tr class='".$warna."'>
-			 <td align=center>$no</td>
-			 <td>$r[nama_penyakit]</td>
-			 <td>$rgejala[nama_gejala]</td>
-			 <td align=center>$r[mb]</td>
-			 <td align=center>$r[md]</td>
-			 <td align=center><a type='button' class='btn btn-success margin' href=pengetahuan/editpengetahuan/$r[kode_pengetahuan]><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Ubah </a> &nbsp;
-	          <a type='button' class='btn btn-danger margin' href=\"JavaScript: confirmIt('Anda yakin akan menghapusnya ?','$aksi?module=pengetahuan&act=hapus&id=$r[kode_pengetahuan]','','','','u','n','Self','Self')\" onMouseOver=\"self.status=''; return true\" onMouseOut=\"self.status=''; return true\"><i class='fa fa-trash-o' aria-hidden='true'></i> Hapus</a>
-             </td></tr>";
+				<td align=center>$no</td>
+				<td>$r[nama_penyakit]</td>
+				<td>$rgejala[nama_gejala]</td>
+				<td align=center>$r[mb]</td>
+				<td align=center>$r[md]</td>
+				<td align=center><a type='button' class='btn btn-success margin' href=pengetahuan/editpengetahuan/$r[kode_pengetahuan]><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Ubah </a> &nbsp;
+				<a type='button' class='btn btn-danger margin' href=\"JavaScript: confirmIt('Anda yakin akan menghapusnya ?','$aksi?module=pengetahuan&act=hapus&id=$r[kode_pengetahuan]','','','','u','n','Self','Self')\" onMouseOver=\"self.status=''; return true\" onMouseOut=\"self.status=''; return true\"><i class='fa fa-trash-o' aria-hidden='true'></i> Hapus</a>
+				</td>
+			 </tr>";
       $no++;
 	  $counter++;
     }
@@ -142,16 +143,17 @@ switch($_GET[act]){
 	$sql2 = mysqli_query($conn, "SELECT * FROM penyakit where id_penyakit = '$r[id_penyakit]'");
 	$rpenyakit=mysqli_fetch_array($sql2);
        echo "<tr class='".$warna."'>
-			 <td style='text-align:center; vertical-align: middle'>$no</td>
-			 <td style='vertical-align: middle'>$rpenyakit[nama_penyakit]</td>
-			 <td style='vertical-align: middle'>$rgejala[nama_gejala]</td>
-			 <td style='text-align:center; vertical-align: middle'>$r[mb]</td>
-			 <td style='text-align:center; vertical-align: middle'>$r[md]</td>
-			 <td align=center>
-			 <a type='button' class='btn btn-success margin' href=pengetahuan/editpengetahuan/$r[kode_pengetahuan]><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Ubah </a> &nbsp;
-	          <a type='button' class='btn btn-danger margin' href=\"JavaScript: confirmIt('Anda yakin akan menghapusnya ?','$aksi?module=pengetahuan&act=hapus&id=$r[kode_pengetahuan]','','','','u','n','Self','Self')\" onMouseOver=\"self.status=''; return true\" onMouseOut=\"self.status=''; return true\">
-			  <i class='fa fa-trash-o' aria-hidden='true'></i> Hapus</a>
-             </td></tr>";
+				<td style='text-align:center; vertical-align: middle'>$no</td>
+				<td style='vertical-align: middle'>$rpenyakit[nama_penyakit]</td>
+				<td style='vertical-align: middle'>$rgejala[nama_gejala]</td>
+				<td style='text-align:center; vertical-align: middle'>$r[mb]</td>
+				<td style='text-align:center; vertical-align: middle'>$r[md]</td>
+				<td align=center>
+					<a type='button' class='btn btn-success margin' href=pengetahuan/editpengetahuan/$r[kode_pengetahuan]><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Ubah </a> &nbsp;
+					<a type='button' class='btn btn-danger margin' href=\"JavaScript: confirmIt('Anda yakin akan menghapusnya ?','$aksi?module=pengetahuan&act=hapus&id=$r[kode_pengetahuan]','','','','u','n','Self','Self')\" onMouseOver=\"self.status=''; return true\" onMouseOut=\"self.status=''; return true\">
+					<i class='fa fa-trash-o' aria-hidden='true'></i> Hapus</a>
+				</td>
+			 </tr>";
       $no++;
 	  $counter++;
     }
@@ -249,14 +251,14 @@ switch($_GET[act]){
 		  <tr><td width=120>Penyakit</td><td><select class='form-control' name='id_penyakit' id='id_penyakit'>";
 		$hasil4 = mysqli_query($conn,"SELECT * FROM penyakit order by nama_penyakit");
 		while($r4=mysqli_fetch_array($hasil4)){
-			echo "<option value='$r4[id_penyakit]'"; if($r[id_penyakit]==$r4[id_penyakit]) echo "selected";
+			echo "<option value='$r4[id_penyakit]'"; if($r[id_penyakit]==$r4[id_penyakit]);
 			echo ">$r4[nama_penyakit]</option>";
 		}
 		echo "</select></td></tr>
 		<tr><td>Gejala</td><td><select class='form-control' name='id_gejala' id='id_gejala'>";
 		$hasil4 = mysqli_query($conn,"SELECT * FROM gejala order by nama_gejala");
 		while($r4=mysqli_fetch_array($hasil4)){
-			echo "<option value='$r4[id_gejala]'"; if($r[id_gejala]==$r4[id_gejala]) echo "selected";
+			echo "<option value='$r4[id_gejala]'"; if($r[id_gejala]==$r4[id_gejala]);
 			echo ">$r4[nama_gejala]</option>";
 		}
 		echo	"</select></td></tr>

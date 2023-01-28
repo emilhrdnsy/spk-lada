@@ -21,18 +21,18 @@ return (true);
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Login Pakar - Chirexs 1.0</title>
+  <title>Login Pakar</title>
       <link rel="stylesheet" href="aset/login/css/style.css">
 </head>
   <body>
-<div class="ayaem">
+<!-- <div class="ayaem">
   <div class="hand"></div>
   <div class="hand hand-r"></div>
   <div class="arms">
     <div class="arm"></div>
     <div class="arm arm-r"></div>
   </div>
-</div>
+</div> -->
 <div class="formku">
    <div class="info">
     <h4><i class="fa fa-paper-plane"></i> Login Pakar</h4><br>
