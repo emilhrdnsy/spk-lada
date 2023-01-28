@@ -23,7 +23,7 @@ switch ($_GET['act']) {
         $arkondisitext[$rkondisi['id']] = $rkondisi['kondisi'];
       }
 
-      $sqlpkt = mysqli_query($conn, "SELECT * FROM penyakit order by kode_penyakit+0");
+      $sqlpkt = mysqli_query($conn, "SELECT * FROM penyakit order by id_penyakit+0");
       while ($rpkt = mysqli_fetch_array($sqlpkt)) {
         $arpkt[$rpkt['kode_penyakit']] = $rpkt['nama_penyakit'];
         $ardpkt[$rpkt['kode_penyakit']] = $rpkt['det_penyakit'];
@@ -34,12 +34,12 @@ switch ($_GET['act']) {
       //print_r($arkondisitext);
 // -------- perhitungan certainty factor (CF) ---------
 // --------------------- START ------------------------
-      $sqlpenyakit = mysqli_query($conn, "SELECT * FROM penyakit order by kode_penyakit");
+      $sqlpenyakit = mysqli_query($conn, "SELECT * FROM penyakit order by ud_penyakit");
       $arpenyakit = array();
       while ($rpenyakit = mysqli_fetch_array($sqlpenyakit)) {
         $cftotal_temp = 0;
         $cf = 0;
-        $sqlgejala = mysqli_query($conn, "SELECT * FROM basis_pengetahuan where kode_penyakit=$rpenyakit[kode_penyakit]");
+        $sqlgejala = mysqli_query($conn, "SELECT * FROM basis_pengetahuan where id_penyakit=$rpenyakit[kode_penyakit]");
         $cflama = 0;
         while ($rgejala = mysqli_fetch_array($sqlgejala)) {
           $arkondisi = explode("_", $_POST['kondisi'][0]);
@@ -63,7 +63,7 @@ switch ($_GET['act']) {
           }
         }
         if ($cflama > 0) {
-          $arpenyakit += array($rpenyakit[kode_penyakit] => number_format($cflama, 4));
+          $arpenyakit += array($rpenyakit[id_penyakit] => number_format($cflama, 4));
         }
       }
 
@@ -153,12 +153,12 @@ switch ($_GET['act']) {
            <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
            <tr><th>No</th><th>Kode</th><th>Gejala</th><th width='20%'>Pilih Kondisi</th></tr>";
 
-      $sql3 = mysqli_query($conn, "SELECT * FROM gejala order by kode_gejala");
+      $sql3 = mysqli_query($conn, "SELECT * FROM gejala order by id_gejala");
       $i = 0;
       while ($r3 = mysqli_fetch_array($sql3)) {
         $i++;
         echo "<tr><td class=opsi>$i</td>";
-        echo "<td class=opsi>" . str_pad($r3[kode_gejala], 3, '0', STR_PAD_LEFT) . "</td>";
+        echo "<td class=opsi>" . str_pad($r3[kode_gejala], '0', STR_PAD_LEFT) . "</td>";
         echo "<td class=gejala>$r3[nama_gejala]</td>";
         echo '<td class="opsi"><select name="kondisi[]" id="sl' . $i . '" class="opsikondisi"/><option data-id="0" value="0">Pilih jika sesuai</option>';
         $s = "select * from kondisi order by id";

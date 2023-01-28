@@ -21,15 +21,15 @@ $module = $_GET['module'];
       <?php
   }else {
       ?>
-    <li><a <?php if ($module == "diagnosa") echo 'class="active"'; ?> href="diagnosa"><i class="fa fa-search-plus"></i> <span>Diagnosa</span></a><li>
-      <div class="container"></div>
+    <li><a <?php if ($module == "diagnosa") echo 'class="active"'; ?> href="diagnosa"><i class="fa      fa-search-plus"></i> <span>Diagnosa</span></a><li>
+    <div class="container"></div>
     <li><a <?php if ($module == "riwayat") echo 'class="active"'; ?> href="riwayat"><i class="fa fa-clock-o"></i> <span>Riwayat</span></a><li>
-      <div class="container"></div>
+    <div class="container"></div>
     <li><a <?php if ($module == "keterangan") echo 'class="active"'; ?> href="keterangan"><i class="fa fa-commenting-o"></i> <span>Keterangan</span></a><li>
-      <div class="container"></div>
-    <li><a <?php if ($module == "harga") echo 'class="active"'; ?> href="harga"><i class="fa fa-bookmark-o"></i> <span>Info Harga</span></a><li>
-      <div class="container"></div>
-      <?php
+    <div class="container"></div>
+    <!-- <li><a <?php if ($module == "harga") echo 'class="active"'; ?> href="harga"><i class="fa fa-bookmark-o"></i> <span>Info Harga</span></a><li> -->
+    <div class="container"></div>
+    <?php
   }
   ?>
 <li><a <?php if ($module == "tentang") echo 'class="active"'; ?> href="tentang"><i class="fa fa-info-circle"></i> <span>Tentang</span></a><li>

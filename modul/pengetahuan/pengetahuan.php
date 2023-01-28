@@ -10,16 +10,16 @@ if (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
 <script type="text/javascript">
 function Blank_TextField_Validator()
 {
-if (text_form.kode_penyakit.value == "")
+if (text_form.id_penyakit.value == "")
 {
    alert("Pilih dulu penyakit !");
-   text_form.kode_penyakit.focus();
+   text_form.id_penyakit.focus();
    return (false);
 }
-if (text_form.kode_gejala.value == "")
+if (text_form.id_gejala.value == "")
 {
    alert("Pilih dulu gejala !");
-   text_form.kode_gejala.focus();
+   text_form.id_gejala.focus();
    return (false);
 }
 if (text_form.mb.value == "")
@@ -67,7 +67,7 @@ switch($_GET[act]){
           </table></form>";
 		  	$baris=mysqli_num_rows($tampil);
 	if ($_POST[Go]){
-			$numrows = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM basis_pengetahuan b,penyakit p where b.kode_penyakit=p.id_penyakit AND p.nama_penyakit like '%$_POST[keyword]%'"));
+			$numrows = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM basis_pengetahuan b,penyakit p where b.id_penyakit=p.id_penyakit AND p.nama_penyakit like '%$_POST[keyword]%'"));
 			if ($numrows > 0){
 				echo "<div class='alert alert-success alert-dismissible'>
                 <h4><i class='icon fa fa-check'></i> Sukses!</h4>
@@ -211,23 +211,23 @@ switch($_GET[act]){
 				<b>CF(Pakar) = MB – MD</b><br>
 				MB : Ukuran kenaikan kepercayaan (measure of increased belief) MD : Ukuran kenaikan ketidakpercayaan (measure of increased disbelief) <br> <br>
 				<b>Contoh:</b><br>
-				Jika kepercayaan <b>(MB)</b> anda terhadap gejala Mencret keputih-putihan untuk penyakit Berak Kapur adalah <b>0.8 (Hampir Pasti)</b><br>
-				Dan ketidakpercayaan <b>(MD)</b> anda terhadap gejala Mencret keputih-putihan untuk penyakit Berak Kapur adalah <b>0.2 (Hampir Mungkin)</b><br><br>
+				Jika kepercayaan <b>(MB)</b> anda terhadap gejala Akar dan batang berwarna hitam untuk penyakit Kuning adalah <b>0.8 (Hampir Pasti)</b><br>
+				Dan ketidakpercayaan <b>(MD)</b> anda terhadap gejala Akar dan batang berwarna hitam untuk penyakit Kuning adalah <b>0.2 (Hampir Mungkin)</b><br><br>
 				<b>Maka:</b> CF(Pakar) = MB – MD (0.8 - 0.2) = <b>0.6</b> <br>
-				Dimana nilai kepastian anda terhadap gejala Mencret keputih-putihan untuk penyakit Berak Kapur adalah <b>0.6 (Kemungkinan Besar)</b>
+				Dimana nilai kepastian anda terhadap gejala MAkar dan batang berwarna hitam untuk penyakit Kuning adalah <b>0.6 (Kemungkinan Besar)</b>
               </div>
           <form name=text_form method=POST action='$aksi?module=pengetahuan&act=input' onsubmit='return Blank_TextField_Validator()'>
           <br><br><table class='table table-bordered'>
-		  <tr><td width=120>Penyakit</td><td><select class='form-control' name='kode_penyakit'  id='kode_penyakit'><option value=''>- Pilih Penyakit -</option>";
+		  <tr><td width=120>Penyakit</td><td><select class='form-control' name='id_penyakit'  id='id_penyakit'><option value=''>- Pilih Penyakit -</option>";
 		$hasil4 = mysqli_query($conn,"SELECT * FROM penyakit order by nama_penyakit");
 		while($r4=mysqli_fetch_array($hasil4)){
-			echo "<option value='$r4[kode_penyakit]'>$r4[nama_penyakit]</option>";
+			echo "<option value='$r4[id_penyakit]'>$r4[nama_penyakit]</option>";
 		}
 		echo	"</select></td></tr>
-		<tr><td>Gejala</td><td><select class='form-control' name='kode_gejala' id='kode_gejala'><option value=''>- Pilih Gejala -</option>";
+		<tr><td>Gejala</td><td><select class='form-control' name='id_gejala' id='id_gejala'><option value=''>- Pilih Gejala -</option>";
 		$hasil4 = mysqli_query($conn,"SELECT * FROM gejala order by nama_gejala");
 		while($r4=mysqli_fetch_array($hasil4)){
-			echo "<option value='$r4[kode_gejala]'>$r4[nama_gejala]</option>";
+			echo "<option value='$r4[id_gejala]'>$r4[nama_gejala]</option>";
 		}
 		echo	"</select></td></tr>
 		<tr><td>MB</td><td><input autocomplete='off' placeholder='Masukkan MB' type=text class='form-control' name='mb' size=15 ></td></tr>
@@ -246,17 +246,17 @@ switch($_GET[act]){
 	<form name=text_form method=POST action='$aksi?module=pengetahuan&act=update' onsubmit='return Blank_TextField_Validator()'>
           <input type=hidden name=id value='$r[kode_pengetahuan]'>
           <br><br><table class='table table-bordered'>
-		  <tr><td width=120>Penyakit</td><td><select class='form-control' name='kode_penyakit' id='kode_penyakit'>";
+		  <tr><td width=120>Penyakit</td><td><select class='form-control' name='id_penyakit' id='id_penyakit'>";
 		$hasil4 = mysqli_query($conn,"SELECT * FROM penyakit order by nama_penyakit");
 		while($r4=mysqli_fetch_array($hasil4)){
-			echo "<option value='$r4[kode_penyakit]'"; if($r[kode_penyakit]==$r4[kode_penyakit]) echo "selected";
+			echo "<option value='$r4[id_penyakit]'"; if($r[id_penyakit]==$r4[id_penyakit]) echo "selected";
 			echo ">$r4[nama_penyakit]</option>";
 		}
-		echo	"</select></td></tr>
-		<tr><td>Gejala</td><td><select class='form-control' name='kode_gejala' id='kode_gejala'>";
+		echo "</select></td></tr>
+		<tr><td>Gejala</td><td><select class='form-control' name='id_gejala' id='id_gejala'>";
 		$hasil4 = mysqli_query($conn,"SELECT * FROM gejala order by nama_gejala");
 		while($r4=mysqli_fetch_array($hasil4)){
-			echo "<option value='$r4[kode_gejala]'"; if($r[kode_gejala]==$r4[kode_gejala]) echo "selected";
+			echo "<option value='$r4[id_gejala]'"; if($r[id_gejala]==$r4[id_gejala]) echo "selected";
 			echo ">$r4[nama_gejala]</option>";
 		}
 		echo	"</select></td></tr>
