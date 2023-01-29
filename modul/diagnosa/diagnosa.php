@@ -5,7 +5,7 @@ switch ($_GET['act']) {
   default:
     if ($_POST['submit']) {
       $arcolor = array('#ffffff', '#cc66ff', '#019AFF', '#00CBFD', '#00FEFE', '#A4F804', '#FFFC00', '#FDCD01', '#FD9A01', '#FB6700');
-      date_default_timezone_set("Asia/Jakarta");
+      date_default_timezone_set("Asia/Makassar");
       $inptanggal = date('Y-m-d H:i:s');
 
       $arbobot = array('0', '1', '0.8', '0.6', '0.4', '-0.2', '-0.4', '-0.6', '-0.8', '-1');
@@ -25,21 +25,21 @@ switch ($_GET['act']) {
 
       $sqlpkt = mysqli_query($conn, "SELECT * FROM penyakit order by id_penyakit+0");
       while ($rpkt = mysqli_fetch_array($sqlpkt)) {
-        $arpkt[$rpkt['kode_penyakit']] = $rpkt['nama_penyakit'];
-        $ardpkt[$rpkt['kode_penyakit']] = $rpkt['det_penyakit'];
-        $arspkt[$rpkt['kode_penyakit']] = $rpkt['srn_penyakit'];
-        $argpkt[$rpkt['kode_penyakit']] = $rpkt['gambar'];
+        $arpkt[$rpkt['id_penyakit']] = $rpkt['nama_penyakit'];
+        $ardpkt[$rpkt['id_penyakit']] = $rpkt['det_penyakit'];
+        $arspkt[$rpkt['id_penyakit']] = $rpkt['srn_penyakit'];
+        $argpkt[$rpkt['id_penyakit']] = $rpkt['gambar'];
       }
 
       //print_r($arkondisitext);
 // -------- perhitungan certainty factor (CF) ---------
 // --------------------- START ------------------------
-      $sqlpenyakit = mysqli_query($conn, "SELECT * FROM penyakit order by ud_penyakit");
+      $sqlpenyakit = mysqli_query($conn, "SELECT * FROM penyakit order by id_penyakit");
       $arpenyakit = array();
       while ($rpenyakit = mysqli_fetch_array($sqlpenyakit)) {
         $cftotal_temp = 0;
         $cf = 0;
-        $sqlgejala = mysqli_query($conn, "SELECT * FROM basis_pengetahuan where id_penyakit=$rpenyakit[kode_penyakit]");
+        $sqlgejala = mysqli_query($conn, "SELECT * FROM basis_pengetahuan where id_penyakit=$rpenyakit[id_penyakit]");
         $cflama = 0;
         while ($rgejala = mysqli_fetch_array($sqlgejala)) {
           $arkondisi = explode("_", $_POST['kondisi'][0]);
@@ -48,7 +48,7 @@ switch ($_GET['act']) {
           for ($i = 0; $i < count($_POST['kondisi']); $i++) {
             $arkondisi = explode("_", $_POST['kondisi'][$i]);
             $gejala = $arkondisi[0];
-            if ($rgejala['kode_gejala'] == $gejala) {
+            if ($rgejala['id_gejala'] == $gejala) {
               $cf = ($rgejala['mb'] - $rgejala['md']) * $arbobot[$arkondisi[1]];
               if (($cf >= 0) && ($cf * $cflama >= 0)) {
                 $cflama = $cflama + ($cf * (1 - $cflama));
@@ -108,10 +108,10 @@ switch ($_GET['act']) {
         $kondisi = $value;
         $ig++;
         $gejala = $key;
-        $sql4 = mysqli_query($conn, "SELECT * FROM gejala where kode_gejala = '$key'");
+        $sql4 = mysqli_query($conn, "SELECT * FROM gejala where id_gejala = '$key'");
         $r4 = mysqli_fetch_array($sql4);
         echo '<tr><td>' . $ig . '</td>';
-        echo '<td>' . str_pad($r4[kode_gejala], 3, '0', STR_PAD_LEFT) . '</td>';
+        echo '<td>' . str_pad($r4[id_gejala], 3, '0', STR_PAD_LEFT) . '</td>';
         echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
         echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
       }
@@ -158,14 +158,14 @@ switch ($_GET['act']) {
       while ($r3 = mysqli_fetch_array($sql3)) {
         $i++;
         echo "<tr><td class=opsi>$i</td>";
-        echo "<td class=opsi>" . str_pad($r3[kode_gejala], '0', STR_PAD_LEFT) . "</td>";
+        echo "<td class=opsi>" . str_pad($r3[id_gejala], '0', STR_PAD_LEFT) . "</td>";
         echo "<td class=gejala>$r3[nama_gejala]</td>";
         echo '<td class="opsi"><select name="kondisi[]" id="sl' . $i . '" class="opsikondisi"/><option data-id="0" value="0">Pilih jika sesuai</option>';
         $s = "select * from kondisi order by id";
         $q = mysqli_query($conn, $s) or die($s);
         while ($rw = mysqli_fetch_array($q)) {
           ?>
-          <option data-id="<?php echo $rw['id']; ?>" value="<?php echo $r3['kode_gejala'] . '_' . $rw['id']; ?>"><?php echo $rw['kondisi']; ?></option>
+          <option data-id="<?php echo $rw['id']; ?>" value="<?php echo $r3['id_gejala'] . '_' . $rw['id']; ?>"><?php echo $rw['kondisi']; ?></option>
           <?php
         }
         echo '</select></td>';

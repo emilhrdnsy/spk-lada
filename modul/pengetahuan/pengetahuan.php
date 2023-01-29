@@ -218,13 +218,13 @@ switch($_GET[act]){
 				<b>Maka:</b> CF(Pakar) = MB – MD (0.8 - 0.2) = <b>0.6</b> <br>
 				Dimana nilai kepastian anda terhadap gejala Akar dan batang berwarna hitam untuk penyakit Kuning adalah <b>0.6 (Kemungkinan Besar)</b>
               </div>
-          <form name=text_form method=POST action='$aksi?module=pengetahuan&act=input' onsubmit='return Blank_TextField_Validator()'>
-          <br><br><table class='table table-bordered'>
-		  <tr><td width=120>Penyakit</td><td><select class='form-control' name='id_penyakit'  id='id_penyakit'><option value=''>- Pilih Penyakit -</option>";
-		$hasil4 = mysqli_query($conn,"SELECT * FROM penyakit order by nama_penyakit");
-		while($r4=mysqli_fetch_array($hasil4)){
-			echo "<option value='$r4[id_penyakit]'>$r4[nama_penyakit]</option>";
-		}
+			<form name=text_form method=POST action='$aksi?module=pengetahuan&act=input' onsubmit='return Blank_TextField_Validator()'>
+			<br><br><table class='table table-bordered'>
+			<tr><td width=120>Penyakit</td><td><select class='form-control' name='id_penyakit'  id='id_penyakit'><option value=''>- Pilih Penyakit -</option>";
+			$hasil4 = mysqli_query($conn,"SELECT * FROM penyakit order by nama_penyakit");
+			while($r4=mysqli_fetch_array($hasil4)){
+				echo "<option value='$r4[id_penyakit]'>$r4[nama_penyakit]</option>";
+			}
 		echo	"</select></td></tr>
 		<tr><td>Gejala</td><td><select class='form-control' name='id_gejala' id='id_gejala'><option value=''>- Pilih Gejala -</option>";
 		$hasil4 = mysqli_query($conn,"SELECT * FROM gejala order by nama_gejala");
