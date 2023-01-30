@@ -1,9 +1,9 @@
-<title>Bantuan - Chirexs 1.0</title>
+<title>Bantuan</title>
 <style>
 @media only screen and (max-width: 1220px) {
-    img {
-        width: 100%;
-    }
+  img {
+    width: 100%;
+  }
 }
 </style>
 <h2 class="page-header">Bantuan Penggunaan Sistem Pakar</h2>
@@ -56,7 +56,7 @@
                      	<a href="animasi/bantuan/user/diagnosahasil.gif" target="_blank"><img src="animasi/bantuan/user/diagnosahasil.gif" alt="Mengakses Diagnosa" /></a><br><br>
                      <div style="font-size: 16px;">
 					 1. Langkah pertama adalah mengarahkan kursor atau tangan ke bagian menu diagnosa<br>
-					 2. Selanjutnya silahkan cari gejala yang di dapati di lapangan, misal ayam dengan gejala Nafsu makan berkurang.<br>
+					 2. Selanjutnya silahkan cari gejala yang di dapati di lapangan, misal tamanan lada dengan gejala Daun Menguning namun tidak layu.<br>
 					 3. Pilih keyakinan anda terhadap gejala tersebut.<br>
 					 4. Pilih salah satu keyakinan, misal hampir pasti ya.<br>
 					 5. Selanjutnya jika terdapat gejala lain anda dapat memilih kembali, dan mengisi seperti langkah 3 & 4.<br>
