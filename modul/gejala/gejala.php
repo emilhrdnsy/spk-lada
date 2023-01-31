@@ -57,12 +57,12 @@ switch($_GET[act]){
                 Gejala yang anda cari di temukan.
               </div>";
 				$i = 1;
-	echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
+	echo" <table class='table table-bordered table-striped' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
-            <tr>
-              <th>Kode Gejala</th>
-              <th>Nama Gejala</th>
-              <th width='21%'>Aksi</th>
+            <tr style='background-color:#D1E7DD'>
+              <th style='text-align:center; vertical-align: middle'>Kode Gejala</th>
+              <th style='text-align:center; vertical-align: middle'>Nama Gejala</th>
+              <th style='text-align:center; vertical-align: middle'>Aksi</th>
             </tr>
           </thead>
 		  <tbody>"; 
@@ -92,9 +92,9 @@ switch($_GET[act]){
 		}else{
 	
 	if($baris>0){
-	echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
+	echo" <table class='table table-bordered table-striped' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
-            <tr>
+            <tr style='background-color:#D1E7DD'>
               <th style='text-align:center; vertical-align: middle'>Kode Gejala</th>
               <th style='text-align:center; vertical-align: middle'>Nama Gejala</th>
               <th style='text-align:center; vertical-align: middle; width='21%' >Aksi</th>

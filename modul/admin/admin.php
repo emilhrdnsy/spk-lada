@@ -62,13 +62,13 @@ switch($_GET[act]){
                 Admin yang anda cari di temukan.
               </div>";
 				$i = 1;
-	echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
+	echo" <table class='table table-bordered table-striped' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
             <tr>
-              <th>No</th>
-              <th>Username</th>
-              <th>Nama Lengkap</th>
-              <th width='21%'>Aksi</th>
+              <th style='text-align:center; vertical-align: middle'>No</th>
+              <th style='text-align:center; vertical-align: middle'>Username</th>
+              <th style='text-align:center; vertical-align: middle'>Nama Lengkap</th>
+              <th style='text-align:center; vertical-align: middle'>Aksi</th>
             </tr>
           </thead>
 		  <tbody>"; 
@@ -99,13 +99,13 @@ switch($_GET[act]){
 		}else{
 	
 	if($baris>0){
-	echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Username</th>
-              <th>Nama Lengkap</th>
-              <th width='21%'>Aksi</th>
+	echo" <table class='table table-bordered table-striped' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
+          <thead >
+            <tr style='background-color:#D1E7DD'>
+              <th style='text-align:center; vertical-align: middle'>No</th>
+              <th style='text-align:center; vertical-align: middle'>Username</th>
+              <th style='text-align:center; vertical-align: middle'>Nama Lengkap</th>
+              <th style='text-align:center; vertical-align: middle'>Aksi</th>
             </tr>
           </thead>
 		  <tbody>
@@ -117,11 +117,11 @@ switch($_GET[act]){
     while ($r=mysqli_fetch_array($hasil)){
 	if ($counter % 2 == 0) $warna = "dark";
 	else $warna = "light";
-       echo "<tr class='".$warna."'>
-			 <td align=center>$no</td>
-	         <td>$r[username]</td>
-	         <td>$r[nama_lengkap]</td>
-			 <td align=center>
+       echo "<tr>
+			 <td style='text-align:center; vertical-align: middle'align=center>$no</td>
+	         <td style='vertical-align: middle'>$r[username]</td>
+	         <td style='vertical-align: middle'>$r[nama_lengkap]</td>
+			 <td style='vertical-align: middle'align=center>
 			 <a type='button' class='btn btn-success margin' href=admin/editadmin/$r[username]><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Ubah </a> &nbsp;
 	          <a type='button' class='btn btn-danger margin' href=\"JavaScript: confirmIt('Anda yakin akan menghapusnya ?','$aksi?module=admin&act=hapus&id=$r[username]','','','','u','n','Self','Self')\" onMouseOver=\"self.status=''; return true\" onMouseOut=\"self.status=''; return true\"><i class='fa fa-trash-o' aria-hidden='true'></i> Hapus</a>
              </td></tr>";

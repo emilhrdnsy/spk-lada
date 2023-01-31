@@ -47,9 +47,9 @@ switch ($_GET[act]) {
                 Post yang anda cari di temukan.
               </div>";
                 $i = 1;
-                echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
+                echo" <table class='table table-bordered table-striped' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
-            <tr>
+            <tr style='background-color: #D1E7DD'>
               <th style='text-align:center; vertical-align: middle'>No</th>
               <th style='text-align:center; vertical-align: middle'>Nama Post</th>
               <th style='text-align:center; vertical-align: middle'>Detail Post</th>
@@ -88,9 +88,9 @@ switch ($_GET[act]) {
         } else {
 
             if ($baris > 0) {
-                echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
+                echo" <table class='table table-bordered table-striped' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
-            <tr>
+            <tr style='background-color: #D1E7DD'>
               <th style='text-align:center; vertical-align: middle'>No</th>
               <th style='text-align:center; vertical-align: middle'>Nama Post</th>
               <th style='text-align:center; vertical-align: middle'>Detail Post</th>

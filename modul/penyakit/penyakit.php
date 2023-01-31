@@ -57,7 +57,7 @@ if (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
                 Penyakit yang anda cari di temukan.
               </div>";
           $i = 1;
-          echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
+          echo" <table class='table table-bordered table-striped' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
             <tr>
               <th style='text-align:center; vertical-align: middle'>Kode Penyakit</th>
@@ -98,9 +98,9 @@ if (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
       } else {
 
         if ($baris > 0) {
-          echo" <table class='table table-bordered' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
+          echo" <table class='table table-bordered table-striped' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
-            <tr>
+            <tr style='background-color:#D1E7DD'>
               <th style='text-align:center; vertical-align: middle'>Kode Penyakit</th>
               <th style='text-align:center; vertical-align: middle'>Nama Penyakit</th>
               <th style='text-align:center; vertical-align: middle'>Detail Penyakit</th>
