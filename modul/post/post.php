@@ -67,11 +67,11 @@ switch ($_GET[act]) {
                     else
                         $warna = "light";
                     echo "<tr class='" . $warna . "'>
-			 <td align=center>$no</td>
-			 <td>$r[nama_post]</td>
-			 <td>$r[det_post]</td>
-			 <td>$r[srn_post]</td>
-			 <td align=center><a type='button' class='btn btn-success margin' href=post/editpost/$r[kode_post]><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Ubahx </a> &nbsp;
+            <td align=center>$no</td>
+            <td>$r[nama_post]</td>
+            <td>$r[det_post]</td>
+            <td>$r[srn_post]</td>
+            <td align=center><a type='button' class='btn btn-success margin' href=post/editpost/$r[kode_post]><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Ubahx </a> &nbsp;
 	          <a type='button' class='btn btn-danger margin' href=\"JavaScript: confirmIt('Anda yakin akan menghapusnya ?','$aksi?module=post&act=hapus&id=$r[kode_post]','','','','u','n','Self','Self')\" onMouseOver=\"self.status=''; return true\" onMouseOut=\"self.status=''; return true\"> <i class='fa fa-trash-o' aria-hidden='true'></i> Hapus</a>
              </td></tr>";
                     $no++;
