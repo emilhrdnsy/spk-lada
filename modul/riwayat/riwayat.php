@@ -14,16 +14,16 @@ switch ($_GET[act]) {
             $offset = 0;
         }
 
-        $sqlgjl = mysqli_query($conn,"SELECT * FROM gejala order by kode_gejala+0");
+        $sqlgjl = mysqli_query($conn,"SELECT * FROM gejala order by id_gejala+0");
         while ($rgjl = mysqli_fetch_array($sqlgjl)) {
-            $argjl[$rgjl['kode_gejala']] = $rgjl['nama_gejala'];
+            $argjl[$rgjl['id_gejala']] = $rgjl['nama_gejala'];
         }
 
-        $sqlpkt = mysqli_query($conn,"SELECT * FROM penyakit order by kode_penyakit+0");
+        $sqlpkt = mysqli_query($conn,"SELECT * FROM penyakit order by id_penyakit+0");
         while ($rpkt = mysqli_fetch_array($sqlpkt)) {
-            $arpkt[$rpkt['kode_penyakit']] = $rpkt['nama_penyakit'];
-            $ardpkt[$rpkt['kode_penyakit']] = $rpkt['det_penyakit'];
-            $arspkt[$rpkt['kode_penyakit']] = $rpkt['srn_penyakit'];
+            $arpkt[$rpkt['id_penyakit']] = $rpkt['nama_penyakit'];
+            $ardpkt[$rpkt['id_penyakit']] = $rpkt['det_penyakit'];
+            $arspkt[$rpkt['id_penyakit']] = $rpkt['srn_penyakit'];
         }
 
         $tampil = mysqli_query($conn,"SELECT * FROM hasil ORDER BY id_hasil");
@@ -32,11 +32,11 @@ switch ($_GET[act]) {
             echo"<div class='row'><div class='col-md-8'><table class='table table-bordered table-striped riwayat' style='overflow-x=auto' cellpadding='0' cellspacing='0'>
           <thead>
             <tr>
-              <th>No</th>
-              <th>Tanggal</th>
-              <th>Penyakit</th>
+              <th style='text-align:center; vertical-align: middle'>No</th>
+              <th style='text-align:center; vertical-align: middle'>Tanggal</th>
+              <th style='text-align:center; vertical-align: middle'>Penyakit</th>
               <th nowrap>Nilai CF</th>
-              <th width='21%' class='text-center'>Aksi</th>
+              <th style='text-align:center; vertical-align: middle' class='text-center'>Aksi</th>
             </tr>
           </thead>
 		  <tbody>
