@@ -27,8 +27,8 @@
 	  
       <p class="f6 silver mt2 mb0">
         <a class="link dim silver"><button style="margin-bottom: 10px;" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Pengembang Aplikasi"><i class="fa fa-user" aria-hidden="true"></i> Serly Purnamasari</button></a>
-        <a class="link dim silver"><button style="margin-bottom: 10px;" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Pakar"><i class="fa fa-user-md" aria-hidden="true"></i> No Name</button></a>
-        <a class="link dim silver"><button style="margin-bottom: 10px;" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dosen Pembimbing"><i class="fa fa-user-plus" aria-hidden="true"></i> Yusuf Anshari</button></a></p>
+        <a class="link dim silver"><button style="margin-bottom: 10px;" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Pakar"><i class="fa fa-user-md" aria-hidden="true"></i> Hamka Biolan, S.P</button></a>
+        <a class="link dim silver"><button style="margin-bottom: 10px;" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Dosen Pembimbing"><i class="fa fa-user-plus" aria-hidden="true"></i> Ir. Yusuf Anshori, S.T., M.T</button></a></p>
 	   <br>
 	   <h2 class="f5 silver mt2 mb1">Sistem Pakar Diagnosa Penyakit Pada Tanaman Lada</h2>
 	  <h2 class="f5 silver mt2 mb1">Copyright © 2022, <a class="link dim silver">Universitas Tadulako </a></h2>

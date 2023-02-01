@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2023 at 02:46 AM
+-- Generation Time: Feb 01, 2023 at 02:14 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 5.6.40
 
@@ -182,7 +182,8 @@ CREATE TABLE `hasil` (
 
 INSERT INTO `hasil` (`id_hasil`, `tanggal`, `penyakit`, `gejala`, `hasil_id`, `hasil_nilai`) VALUES
 (1, '2023-01-29 20:51:46', 'a:1:{i:1;s:6:\"0.7440\";}', 'a:2:{i:1;s:1:\"1\";i:2;s:1:\"3\";}', 1, '0.7440'),
-(2, '2023-01-29 20:52:37', 'a:3:{i:1;s:6:\"0.8669\";i:5;s:6:\"0.4800\";i:6;s:6:\"0.2400\";}', 'a:6:{i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"1\";i:6;s:1:\"7\";i:9;s:1:\"2\";i:10;s:1:\"3\";}', 1, '0.8669');
+(2, '2023-01-29 20:52:37', 'a:3:{i:1;s:6:\"0.8669\";i:5;s:6:\"0.4800\";i:6;s:6:\"0.2400\";}', 'a:6:{i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"1\";i:6;s:1:\"7\";i:9;s:1:\"2\";i:10;s:1:\"3\";}', 1, '0.8669'),
+(3, '2023-01-31 15:13:36', 'a:3:{i:5;s:6:\"0.6000\";i:3;s:6:\"0.4800\";i:2;s:6:\"0.2400\";}', 'a:4:{i:12;s:1:\"6\";i:18;s:1:\"2\";i:19;s:1:\"1\";i:20;s:1:\"4\";}', 5, '0.6000');
 
 -- --------------------------------------------------------
 
@@ -328,7 +329,7 @@ ALTER TABLE `gejala`
 -- AUTO_INCREMENT for table `hasil`
 --
 ALTER TABLE `hasil`
-  MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kondisi`
