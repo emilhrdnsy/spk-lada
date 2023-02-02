@@ -21,12 +21,12 @@ if ($_GET['id']) {
     $arkondisitext[$rkondisi['id']] = $rkondisi['kondisi'];
   }
 
-  $sqlpkt = mysqli_query($conn,"SELECT * FROM penyakit order by kode_penyakit+0");
+  $sqlpkt = mysqli_query($conn,"SELECT * FROM penyakit order by id_penyakit+0");
   while ($rpkt = mysqli_fetch_array($sqlpkt)) {
-    $arpkt[$rpkt['kode_penyakit']] = $rpkt['nama_penyakit'];
-    $ardpkt[$rpkt['kode_penyakit']] = $rpkt['det_penyakit'];
-    $arspkt[$rpkt['kode_penyakit']] = $rpkt['srn_penyakit'];
-    $argpkt[$rpkt['kode_penyakit']] = $rpkt['gambar'];
+    $arpkt[$rpkt['id_penyakit']] = $rpkt['nama_penyakit'];
+    $ardpkt[$rpkt['id_penyakit']] = $rpkt['det_penyakit'];
+    $arspkt[$rpkt['id_penyakit']] = $rpkt['srn_penyakit'];
+    $argpkt[$rpkt['id_penyakit']] = $rpkt['gambar'];
   }
 
   $sqlhasil = mysqli_query($conn,"SELECT * FROM hasil where id_hasil=" . $_GET['id']);
@@ -58,10 +58,10 @@ if ($_GET['id']) {
     $kondisi = $value;
     $ig++;
     $gejala = $key;
-    $sql4 = mysqli_query($conn,"SELECT * FROM gejala where kode_gejala = '$key'");
+    $sql4 = mysqli_query($conn,"SELECT * FROM gejala where id_gejala = '$key'");
     $r4 = mysqli_fetch_array($sql4);
     echo '<tr><td>' . $ig . '</td>';
-    echo '<td>G' . str_pad($r4[kode_gejala], 3, '0', STR_PAD_LEFT) . '</td>';
+    echo '<td>G' . str_pad($r4[id_gejala], 3, '0', STR_PAD_LEFT) . '</td>';
     echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
     echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
   }

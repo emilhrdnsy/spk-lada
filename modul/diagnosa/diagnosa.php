@@ -111,7 +111,7 @@ switch ($_GET['act']) {
         $sql4 = mysqli_query($conn, "SELECT * FROM gejala where id_gejala = '$key'");
         $r4 = mysqli_fetch_array($sql4);
         echo '<tr><td>' . $ig . '</td>';
-        echo '<td>' . str_pad($r4[id_gejala], 3, '0', STR_PAD_LEFT) . '</td>';
+        echo '<td>' . $r4[kode_gejala] .'</td>';
         echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
         echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
       }
@@ -158,7 +158,7 @@ switch ($_GET['act']) {
       while ($r3 = mysqli_fetch_array($sql3)) {
         $i++;
         echo "<tr><td class=opsi>$i</td>";
-        echo "<td class=opsi>" . str_pad($r3[id_gejala], '0', STR_PAD_LEFT) . "</td>";
+        echo "<td class=opsi>$r3[kode_gejala]</td>";
         echo "<td class=gejala>$r3[nama_gejala]</td>";
         echo '<td class="opsi"><select name="kondisi[]" id="sl' . $i . '" class="opsikondisi"/><option data-id="0" value="0">Pilih jika sesuai</option>';
         $s = "select * from kondisi order by id";

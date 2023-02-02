@@ -35,7 +35,7 @@
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                     <div class="box-body">
-					<a href="animasi/bantuan/user/menu.gif" target="_blank"><img src="animasi/bantuan/user/menu.gif" alt="Mengakses Menu" /></a><br><br>
+					<a href="animasi/bantuan/user/menu2.gif" target="_blank"><img src="animasi/bantuan/user/menu2.gif" alt="Mengakses Menu" /></a><br><br>
                      <div style="font-size: 16px;">
 					 1. Langkah pertama adalah mengarahkan kursor atau tangan ke bagian menu di samping kiri<br>
 					 2. Selanjutnya silahkan klik atau tekan menu yang ingin anda masuki.<br>
@@ -53,7 +53,7 @@
                   </div>
                   <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                     <div class="box-body">
-                     	<a href="animasi/bantuan/user/diagnosahasil.gif" target="_blank"><img src="animasi/bantuan/user/diagnosahasil.gif" alt="Mengakses Diagnosa" /></a><br><br>
+                     	<a href="animasi/bantuan/user/diagnosahasil2.gif" target="_blank"><img src="animasi/bantuan/user/diagnosahasil2.gif" alt="Mengakses Diagnosa" style="width:90%"/></a><br><br>
                      <div style="font-size: 16px;">
 					 1. Langkah pertama adalah mengarahkan kursor atau tangan ke bagian menu diagnosa<br>
 					 2. Selanjutnya silahkan cari gejala yang di dapati di lapangan, misal tamanan lada dengan gejala Daun Menguning namun tidak layu.<br>
@@ -84,37 +84,18 @@
                     </div></div>
                   </div>
                 </div>
-				<div class="panel box box-danger">
-                  <div class="box-header with-border">
-                    <h4 class="box-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="collapsed" aria-expanded="false">
-                        4. Cara Melihat Fitur Harga Harian
-                      </a>
-                    </h4>
-                  </div>
-                  <div id="collapseFive" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                    <div class="box-body">
-                     	<a href="animasi/bantuan/user/harga.gif" target="_blank"><img src="animasi/bantuan/user/harga.gif" alt="Mengakses Diagnosa" /></a><br><br>
-                     <div style="font-size: 16px;">
-					 1. Langkah pertama adalah mengarahkan kursor atau tangan ke bagian menu harga<br>
-					 2. Pastikan internet anda berfungsi,Jika anda offline maka hasilnya akan kosong(blank).<br>
-					 3. Pilih salah satu menu tab dengan meng klik menu yang di kehendaki.<br>
-					 4. Data harga akan tampil sesuai menu yang anda pilih.<br>
-					 </div>
-                    </div>
-                  </div>
-                </div>
+				
                 <div class="panel box box-success">
                   <div class="box-header with-border">
                     <h4 class="box-title">
                       <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="" aria-expanded="true">
-                       5. Cara Melihat Riwayat Konsultasi
+                       4. Cara Melihat Riwayat Konsultasi
                       </a>
                     </h4>
                   </div>
                   <div id="collapseThree" class="panel-collapse collapse in" aria-expanded="true" style="">
                     <div class="box-body">
-                      <a href="animasi/bantuan/user/riwayat.gif" target="_blank"><img src="animasi/bantuan/user/riwayat.gif" alt="Mengakses Diagnosa" /></a><br><br>
+                      <a href="animasi/bantuan/user/riwayat2.gif" target="_blank"><img src="animasi/bantuan/user/riwayat2.gif" alt="Mengakses Diagnosa" /></a><br><br>
                      <div style="font-size: 16px;">
 					 1. Langkah pertama adalah mengarahkan kursor atau tangan ke bagian menu riwayat<br>
 					 2. Selanjutnya silahkan cari riwayat yang dilihat, anda dapat menentukan riwayat mana berdasarkan tanggal.<br>

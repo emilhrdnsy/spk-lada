@@ -193,9 +193,11 @@ switch($_GET[act]){
     echo "<form name=text_form method=POST action='$aksi?module=admin&act=update' onsubmit='return Blank_TextField_Validator()'>
           <input type=hidden name=id value='$r[username]'>
           <br><br><table class='table table-bordered'>
-	      <tr><td>Username</td> <td>  <input autocomplete='off' type=text class='form-control' name='username' value=\"$r[username]\" size=30></td></tr>
 	      <tr><td>Nama Lengkap</td> <td>  <input autocomplete='off' type=text class='form-control' name='nama_lengkap' value=\"$r[nama_lengkap]\" size=30></td></tr>
-          <tr><td></td><td>
+	      <tr><td>Username</td> <td>  <input autocomplete='off' type=text class='form-control' name='username' value=\"$r[username]\" size=30></td></tr>
+          <tr><td>Password Lama</td> <td>  <input autocomplete='off' type=text class='form-control' name='password' value=\"$r[password]\" size=30></td></tr>
+		  <tr><td>Password Baru</td> <td>  <input autocomplete='off' type=text class='form-control' name='new_password' value=\"$r[new_password]\" size=30></td></tr>
+		  <tr><td></td><td>
 		  <input class='btn btn-success' type=submit name=submit value='Simpan' >
 		  <input class='btn btn-danger' type=button name=batal value='Batal' onclick=\"window.location.href='?module=admin';\"></td></tr>
           </table></form>";
