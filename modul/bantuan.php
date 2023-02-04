@@ -33,7 +33,7 @@
                       </a>
                     </h4>
                   </div>
-                  <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                  <div id="collapseOne" class="panel-collapse collapse" aria-expanded="true" style="height: 0px;">
                     <div class="box-body">
 					<a href="animasi/bantuan/user/menu2.gif" target="_blank"><img src="animasi/bantuan/user/menu2.gif" alt="Mengakses Menu" /></a><br><br>
                      <div style="font-size: 16px;">
@@ -93,9 +93,9 @@
                       </a>
                     </h4>
                   </div>
-                  <div id="collapseThree" class="panel-collapse collapse in" aria-expanded="true" style="">
+                  <div id="collapseThree" class="panel-collapse collapse in" aria-expanded="false" style="">
                     <div class="box-body">
-                      <a href="animasi/bantuan/user/riwayat2.gif" target="_blank"><img src="animasi/bantuan/user/riwayat2.gif" alt="Mengakses Diagnosa" /></a><br><br>
+                      <a href="animasi/bantuan/user/riwayat2.gif" target="_blank"><img src="animasi/bantuan/user/riwayat2.gif" alt="Mengakses Diagnosa" style="width:90%"/></a><br><br>
                      <div style="font-size: 16px;">
 					 1. Langkah pertama adalah mengarahkan kursor atau tangan ke bagian menu riwayat<br>
 					 2. Selanjutnya silahkan cari riwayat yang dilihat, anda dapat menentukan riwayat mana berdasarkan tanggal.<br>
