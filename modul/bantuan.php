@@ -75,7 +75,7 @@
                   </div>
                   <div id="collapseFour" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                     <div class="box-body">
-					<a href="animasi/bantuan/user/postme.gif" target="_blank"><img src="animasi/bantuan/user/postme.gif" alt="Mengakses Menu" /></a><br><br>
+					<a href="animasi/bantuan/user/postme2.gif" target="_blank"><img src="animasi/bantuan/user/postme2.gif" alt="Mengakses Menu" /></a><br><br>
                      <div style="font-size: 16px;">
 					 1. Langkah pertama adalah mengarahkan kursor atau tangan ke bagian menu keterangan<br>
 					 2. Selanjutnya silahkan cari penyakit yang dilihat, akan ada tombol detail dan saran di bawahnya<br>
