@@ -2,7 +2,8 @@
 <?php
 
 if ($_GET['id']) {
-  $arcolor = array('#ffffff', '#cc66ff', '#019AFF', '#00CBFD', '#00FEFE', '#A4F804', '#FFFC00', '#FDCD01', '#FD9A01', '#FB6700');
+  // $arcolor = array('#ffffff', '#cc66ff', '#019AFF', '#00CBFD', '#00FEFE', '#A4F804', '#FFFC00', '#FDCD01', '#FD9A01', '#FB6700');
+  $arcolor = array('#ffffff', '#B2A4FF', '#B4E4FF', '#B9F3FC', '#B6E2A1', '#FFF2CC', '#FFD4B2', '#FAAB78');
   date_default_timezone_set("Asia/Jakarta");
   $inptanggal = date('Y-m-d H:i:s');
 
@@ -45,8 +46,27 @@ if ($_GET['id']) {
 
 // --------------------- END -------------------------
 
-  echo "<div class='content'>
+echo "<div class='content'>
 	<h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
+  
+		  <hr><table class='table table-bordered table-striped diagnosa'> 
+          <th width=8%>No</th>
+          <th width=10%>Nama Penyakit</th>
+          <th>Gejala</th>
+          </tr>";
+  $ig = 0;
+  foreach ($argejala as $key => $value) {
+    $kondisi = $value;
+    $ig++;
+    $gejala = $key;
+    $sql4 = mysqli_query($conn,"SELECT * FROM basis_pengetahuan where id_gejala = '$key'");
+    $r4 = mysqli_fetch_array($sql4);
+    echo '<tr><td>' . $ig . '</td>';
+    echo '<td>' . str_pad($r4[nama_penyakit], 3) . '</td>';
+    echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
+  }
+
+  echo "<div>  
 		  <hr><table class='table table-bordered table-striped diagnosa'> 
           <th width=8%>No</th>
           <th width=10%>Kode</th>
@@ -61,7 +81,7 @@ if ($_GET['id']) {
     $sql4 = mysqli_query($conn,"SELECT * FROM gejala where id_gejala = '$key'");
     $r4 = mysqli_fetch_array($sql4);
     echo '<tr><td>' . $ig . '</td>';
-    echo '<td>G' . str_pad($r4[id_gejala], 3, '0', STR_PAD_LEFT) . '</td>';
+    echo '<td>G' . str_pad($r4[id_gejala], 3) . '</td>';
     echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
     echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
   }

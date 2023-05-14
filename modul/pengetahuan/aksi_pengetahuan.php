@@ -21,23 +21,41 @@ if ($module=='pengetahuan' AND $act=='hapus'){
 
 // Input pengetahuan
 elseif ($module=='pengetahuan' AND $act=='input'){
-$id_penyakit=$_POST[id_penyakit];
-$id_gejala=$_POST[id_gejala];
+$value = $_POST[id_penyakit];
+$exploded_value = explode('|', $value);
+$id_penyakit = $exploded_value[0];
+$nama_penyakit = $exploded_value[1];
+// $id_penyakit=$_POST[id_penyakit];
+// $nama_penyakit=$_POST[nama_penyakit];
+$value2 = $_POST[id_gejala];
+$exploded_value2 = explode('|', $value2);
+$id_gejala = $exploded_value2[0];
+$nama_gejala = $exploded_value2[1];
+// $id_gejala=$_POST[id_gejala];
+// $nama_gejala=$_POST[nama_gejala];
 $mb=$_POST[mb];
 $md=$_POST[md];
-mysqli_query($conn,"INSERT INTO basis_pengetahuan(id_penyakit,id_gejala,mb,md) VALUES('$id_penyakit','$id_gejala','$mb','$md')");
+mysqli_query($conn,"INSERT INTO basis_pengetahuan(id_penyakit,nama_penyakit,id_gejala,nama_gejala,mb,md) VALUES('$id_penyakit','$nama_penyakit','$id_gejala','$nama_gejala','$mb','$md')");
 header('location:../../index.php?module='.$module);
 }
 
 // Update pengetahuan
 elseif ($module=='pengetahuan' AND $act=='update'){
-$id_penyakit=$_POST[id_penyakit];
-$id_gejala=$_POST[id_gejala];
+  $value = $_POST[id_penyakit];
+  $exploded_value = explode('|', $value);
+  $id_penyakit = $exploded_value[0];
+  $nama_penyakit = $exploded_value[1];
+  $value2 = $_POST[id_gejala];
+  $exploded_value2 = explode('|', $value2);
+  $id_gejala = $exploded_value2[0];
+  $nama_gejala = $exploded_value2[1];
 $mb=$_POST[mb];
 $md=$_POST[md];
   mysqli_query($conn,"UPDATE basis_pengetahuan SET
 					id_penyakit   = '$id_penyakit',
+					nama_penyakit   = '$nama_penyakit',
 					id_gejala   = '$id_gejala',
+					nama_gejala   = '$nama_gejala',
 					mb   = '$mb',
 					md   = '$md'
           WHERE kode_pengetahuan = '$_POST[id]'");

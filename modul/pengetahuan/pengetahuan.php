@@ -86,6 +86,7 @@ switch($_GET[act]){
             </tr>
           </thead>
 		  <tbody>"; 
+
 	$hasil = mysqli_query($conn,"SELECT * FROM basis_pengetahuan b,penyakit p where b.id_penyakit=p.id_penyakit AND p.nama_penyakit like '%$_POST[keyword]%'");
 	$no = 1;
 	$counter = 1;
@@ -202,6 +203,8 @@ switch($_GET[act]){
 	}
     break;
   
+
+
   case "tambahpengetahuan":
 	echo "	<div class='alert alert-success alert-dismissible'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
@@ -220,17 +223,21 @@ switch($_GET[act]){
               </div>
 			<form name=text_form method=POST action='$aksi?module=pengetahuan&act=input' onsubmit='return Blank_TextField_Validator()'>
 			<br><br><table class='table table-bordered'>
+
 			<tr><td width=120>Penyakit</td><td><select class='form-control' name='id_penyakit'  id='id_penyakit'><option value=''>- Pilih Penyakit -</option>";
 			$hasil4 = mysqli_query($conn,"SELECT * FROM penyakit order by nama_penyakit");
 			while($r4=mysqli_fetch_array($hasil4)){
-				echo "<option value='$r4[id_penyakit]'>$r4[nama_penyakit]</option>";
+				// echo "<option value='$r4[id_penyakit]'>$r4[nama_penyakit]</option>";
+				echo "<option value='$r4[id_penyakit]|$r4[nama_penyakit]'>$r4[nama_penyakit]</option> ";
 			}
-		echo	"</select></td></tr>
-		<tr><td>Gejala</td><td><select class='form-control' name='id_gejala' id='id_gejala'><option value=''>- Pilih Gejala -</option>";
-		$hasil4 = mysqli_query($conn,"SELECT * FROM gejala order by nama_gejala");
-		while($r4=mysqli_fetch_array($hasil4)){
-			echo "<option value='$r4[id_gejala]'>$r4[nama_gejala]</option>";
-		}
+			
+			echo	"</select></td></tr>
+			<tr><td>Gejala</td><td><select class='form-control' name='id_gejala' id='id_gejala'><option value=''>- Pilih Gejala -</option>";
+			$hasil4 = mysqli_query($conn,"SELECT * FROM gejala order by nama_gejala");
+			while($r4=mysqli_fetch_array($hasil4)){
+				// echo "<option value='$r4[id_gejala]' >$r4[nama_gejala]</option>";
+				echo "<option value='$r4[id_gejala]|$r4[nama_gejala]'>$r4[nama_gejala]</option> ";
+			}
 		echo	"</select></td></tr>
 		<tr><td>MB</td><td><input autocomplete='off' placeholder='Masukkan MB' type=text class='form-control' name='mb' size=15 ></td></tr>
 		<tr><td>MD</td><td><input autocomplete='off' placeholder='Masukkan MD' type=text class='form-control' name='md' size=15 ></td></tr>
@@ -239,6 +246,7 @@ switch($_GET[act]){
           </table></form>";
      break;
     
+
   case "editpengetahuan":
     $edit=mysqli_query($conn,"SELECT * FROM basis_pengetahuan WHERE kode_pengetahuan='$_GET[id]'");
     $r=mysqli_fetch_array($edit);
@@ -252,7 +260,7 @@ switch($_GET[act]){
 		$hasil4 = mysqli_query($conn,"SELECT * FROM penyakit order by nama_penyakit");
 		while($r4=mysqli_fetch_array($hasil4)){
 			echo "<option value='$r4[id_penyakit]'"; if($r[id_penyakit]==$r4[id_penyakit]);
-			echo ">$r4[nama_penyakit]</option>";
+			echo ">$r4[nama_penyakit]</option>";		
 		}
 		echo "</select></td></tr>
 		<tr><td>Gejala</td><td><select class='form-control' name='id_gejala' id='id_gejala'>";

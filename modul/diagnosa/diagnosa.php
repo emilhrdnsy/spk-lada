@@ -12,6 +12,7 @@ switch ($_GET['act']) {
       // $arbobot = array('0', '1', '0.8', '0.6', '0.4', '-0.2', '-0.4', '-0.6', '-0.8', '-1');
       $arbobot = array('0', '0.8', '0.6', '0.4', '-0.2', '-0.4', '-0.6', '-1');
       $argejala = array();
+      $arpengetahuan = array();
 
       for ($i = 0; $i < count($_POST['kondisi']); $i++) {
         $arkondisi = explode("_", $_POST['kondisi'][$i]);
@@ -19,6 +20,8 @@ switch ($_GET['act']) {
           $argejala += array($arkondisi[0] => $arkondisi[1]);
         }
       }
+
+  
 
       $sqlkondisi = mysqli_query($conn, "SELECT * FROM kondisi order by id+0");
       while ($rkondisi = mysqli_fetch_array($sqlkondisi)) {
@@ -33,7 +36,7 @@ switch ($_GET['act']) {
         $argpkt[$rpkt['id_penyakit']] = $rpkt['gambar'];
       }
 
-      //print_r($arkondisitext);
+//print_r($arkondisitext);
 // -------- perhitungan certainty factor (CF) ---------
 // --------------------- START ------------------------
       $sqlpenyakit = mysqli_query($conn, "SELECT * FROM penyakit order by id_penyakit");
@@ -73,6 +76,7 @@ switch ($_GET['act']) {
 
       $inpgejala = serialize($argejala);
       $inppenyakit = serialize($arpenyakit);
+      
 
       $np1 = 0;
       foreach ($arpenyakit as $key1 => $value1) {
@@ -97,39 +101,61 @@ switch ($_GET['act']) {
 				)");
 // --------------------- END -------------------------
 
-      echo "<div class='content'>
+
+echo "<div class='content'>
 	<h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
-	          <hr><table class='table table-bordered table-striped diagnosa'> 
-          <th width=8%>No</th>
-          <th width=10%>Kode</th>
-          <th>Gejala yang dialami (keluhan)</th>
-          <th width=20%>Pilihan</th>
+          <hr><table class='table table-bordered table-striped diagnosa'> 
+            <th width=8%>No</th>
+            <th width=10%>Nama Penyakit</th>
+            <th>Gejala</th>
           </tr>";
-      $ig = 0;
-      foreach ($argejala as $key => $value) {
-        $kondisi = $value;
-        $ig++;
-        $gejala = $key;
-        $sql4 = mysqli_query($conn, "SELECT * FROM gejala where id_gejala = '$key'");
-        $r4 = mysqli_fetch_array($sql4);
-        echo '<tr><td>' . $ig . '</td>';
-        echo '<td>' . $r4[kode_gejala] .'</td>';
-        echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
-        echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
-      }
-      $np = 0;
-      foreach ($arpenyakit as $key => $value) {
-        $np++;
-        $idpkt[$np] = $key;
-        $nmpkt[$np] = $arpkt[$key];
-        $vlpkt[$np] = $value;
-      }
-      if ($argpkt[$idpkt[1]]) {
-        $gambar = 'gambar/penyakit/' . $argpkt[$idpkt[1]];
-      } else {
-        $gambar = 'gambar/noimage.png';
-      }
-      echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' style='float:right; margin-left:15px;' src='" . $gambar . "' height=200><h3>Hasil Diagnosa</h3>";
+          $ig = 0;
+          foreach ($argejala as $key => $value) {
+            $kondisi = $value;
+            $ig++;
+            $gejala = $key;
+            $sql4 = mysqli_query($conn, "SELECT * FROM basis_pengetahuan where id_gejala = '$key'");
+            $r4 = mysqli_fetch_array($sql4);
+            echo '<tr><td>' . $ig . '</td>';
+            echo '<td>' . $r4[nama_penyakit] .'</td>';
+            echo '<td><span class="hasil text text-primary">'. $r4[nama_gejala] ."</span></td>";
+          }
+          
+
+  echo "<div>
+          <table class='table table-bordered table-striped diagnosa'> 
+            <th width=8%>No</th>
+            <th width=10%>Kode</th>
+            <th>Gejala yang dialami (keluhan)</th>
+            <th width=20%>Pilihan</th>
+          </tr>";
+          $ig = 0;
+          foreach ($argejala as $key => $value) {
+            $kondisi = $value;
+            $ig++;
+            $gejala = $key;
+            $sql4 = mysqli_query($conn, "SELECT * FROM gejala where id_gejala = '$key'");
+            $r4 = mysqli_fetch_array($sql4);
+            echo '<tr><td>' . $ig . '</td>';
+            echo '<td>' . $r4[kode_gejala] .'</td>';
+            echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
+            echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
+          }
+          $np = 0;
+          foreach ($arpenyakit as $key => $value) {
+            $np++;
+            $idpkt[$np] = $key;
+            $nmpkt[$np] = $arpkt[$key];
+            $vlpkt[$np] = $value;
+          }
+          if ($argpkt[$idpkt[1]]) {
+            $gambar = 'gambar/penyakit/' . $argpkt[$idpkt[1]];
+          } else {
+            $gambar = 'gambar/noimage.png';
+          }
+
+      echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' 
+      style='float:right; margin-left:15px;' src='" . $gambar . "' height=200><h3>Hasil Diagnosa</h3>";
       echo "<div class='callout callout-default'>Jenis penyakit yang diderita adalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 2)*100 . " %<br></h3>";
       echo "</div></div><div class='box box-info box-solid'><div class='box-header with-border'><h3 class='box-title'>Detail</h3></div><div class='box-body'><h4>";
       echo $ardpkt[$idpkt[1]];
