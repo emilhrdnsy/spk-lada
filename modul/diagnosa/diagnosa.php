@@ -105,9 +105,9 @@ switch ($_GET['act']) {
 echo "<div class='content'>
 	<h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
           <hr><table class='table table-bordered table-striped diagnosa'> 
-            <th width=8%>No</th>
-            <th width=10%>Nama Penyakit</th>
-            <th>Gejala</th>
+            <th width=8% style='text-align: center'>No</th>
+            <th width=20% style='text-align: center'>Nama Penyakit</th>
+            <th style='text-align: center'>Gejala</th>
           </tr>";
           $ig = 0;
           foreach ($argejala as $key => $value) {
@@ -116,18 +116,18 @@ echo "<div class='content'>
             $gejala = $key;
             $sql4 = mysqli_query($conn, "SELECT * FROM basis_pengetahuan where id_gejala = '$key'");
             $r4 = mysqli_fetch_array($sql4);
-            echo '<tr><td>' . $ig . '</td>';
-            echo '<td>' . $r4[nama_penyakit] .'</td>';
-            echo '<td><span class="hasil text text-primary">'. $r4[nama_gejala] ."</span></td>";
+            echo '<tr><td style="text-align: center; vertical-align:middle">' . $ig . '</td>';
+            echo '<td style="vertical-align:middle">' . $r4[nama_penyakit] .'</td>';
+            echo '<td style="vertical-align:middle"><span class="hasil text text-primary">'. $r4[nama_gejala] ."</span></td>";
           }
           
 
   echo "<div>
           <table class='table table-bordered table-striped diagnosa'> 
-            <th width=8%>No</th>
-            <th width=10%>Kode</th>
-            <th>Gejala yang dialami (keluhan)</th>
-            <th width=20%>Pilihan</th>
+            <th width=8% style='text-align: center'>No</th>
+            <th width=10% style='text-align: center'>Kode</th>
+            <th style='text-align: center'>Gejala yang dialami (keluhan)</th>
+            <th width=20% style='text-align: center'>Pilihan</th>
           </tr>";
           $ig = 0;
           foreach ($argejala as $key => $value) {
@@ -136,9 +136,9 @@ echo "<div class='content'>
             $gejala = $key;
             $sql4 = mysqli_query($conn, "SELECT * FROM gejala where id_gejala = '$key'");
             $r4 = mysqli_fetch_array($sql4);
-            echo '<tr><td>' . $ig . '</td>';
+            echo '<tr><td style="text-align: center; vertical-align:middle">' . $ig . '</td>';
             echo '<td>' . $r4[kode_gejala] .'</td>';
-            echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
+            echo '<td><span class="hasil text text-primary" style="vertical-align:middle">' . $r4[nama_gejala] . "</span></td>";
             echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
           }
           $np = 0;
@@ -165,7 +165,7 @@ echo "<div class='content'>
       echo "</h4></div></div>
           <div class='box box-danger box-solid'><div class='box-header with-border'><h3 class='box-title'>Kemungkinan lain:</h3></div><div class='box-body'><h4>";
       for ($ipl = 2; $ipl < count($idpkt); $ipl++) {
-        echo " <h4><i class='fa fa-caret-square-o-right'></i> " . $nmpkt[$ipl] . "</b> / " . round($vlpkt[$ipl], 2) . " %<br></h4>";
+        echo " <h4><i class='fa fa-check-square-o '></i> " . $nmpkt[$ipl] . "</b> / " . round($vlpkt[$ipl], 2)*100 .  "%<br></h4>";
       }
       echo "</div></div>
 		  </div>";
